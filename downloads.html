@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Downloads | Competition Point</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        // Function to show the subject buttons when a class button is clicked
+        function showSubjects(classLevel) {
+            // Hide all subject buttons first
+            document.querySelectorAll('.subjects').forEach(function(subjectButton) {
+                subjectButton.style.display = 'none';
+            });
+
+            // Show the subject buttons for the selected class
+            var subjects = document.querySelectorAll('.' + classLevel);
+            subjects.forEach(function(subjectButton) {
+                subjectButton.style.display = 'inline-block';
+            });
+        }
+
+        // Function to show the download links when a subject button is clicked
+        function showLinks(subject) {
+            // Hide all links first
+            document.querySelectorAll('.download-links').forEach(function(linkSection) {
+                linkSection.style.display = 'none';
+            });
+
+            // Show the download links for the selected subject
+            var links = document.querySelectorAll('.' + subject);
+            links.forEach(function(linkSection) {
+                linkSection.style.display = 'block';
+            });
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -23,13 +52,72 @@
     </header>
 
     <section>
-        <h2>Download Notes and Ppts</h2>
-        <p>Here you can download study materials like PDF notes and PPTs related to different subjects:</p>
-        <ul>
-            <li><a href="https://drive.google.com/file/d/1eZKMWPei_1tH05Klc-iP2BzFy8_JtkUq/view?usp=drive_link/view" target="_blank">Subject 1 Notes (PDF)</a></li>
-            <li><a href="https://drive.google.com/file/d/your-ppt-file-id/view" target="_blank">Subject 1 PPT</a></li>
-            <!-- Add more links here -->
-        </ul>
+        <h2>Select Class</h2>
+        <!-- Buttons to select class -->
+        <button onclick="showSubjects('class10')">Class 10th</button>
+        <button onclick="showSubjects('class11')">Class 11th</button>
+        <button onclick="showSubjects('class12')">Class 12th</button>
+    </section>
+
+    <section>
+        <h2>Class 10th Subjects</h2>
+        <div class="class10 subjects" style="display:none;">
+            <button onclick="showLinks('science10')">Science</button>
+            <button onclick="showLinks('socialscience10')">Social Science</button>
+            <button onclick="showLinks('maths10')">Maths</button>
+        </div>
+    </section>
+
+    <section>
+        <h2>Class 11th Subjects</h2>
+        <div class="class11 subjects" style="display:none;">
+            <button onclick="showLinks('physics11')">Physics</button>
+            <button onclick="showLinks('chemistry11')">Chemistry</button>
+            <button onclick="showLinks('maths11')">Maths</button>
+            <button onclick="showLinks('bio11')">Biology</button>
+        </div>
+    </section>
+
+    <section>
+        <h2>Class 12th Subjects</h2>
+        <div class="class12 subjects" style="display:none;">
+            <button onclick="showLinks('physics12')">Physics</button>
+            <button onclick="showLinks('chemistry12')">Chemistry</button>
+            <button onclick="showLinks('maths12')">Maths</button>
+            <button onclick="showLinks('bio12')">Biology</button>
+        </div>
+    </section>
+
+    <section>
+        <!-- Links for Class 10 Science -->
+        <div class="science10 download-links" style="display:none;">
+            <h3>Science - Class 10th</h3>
+            <ul>
+                <li><a href="https://drive.google.com/file/d/your-pdf-file-id/view" target="_blank">PDF Notes</a></li>
+                <li><a href="https://drive.google.com/file/d/your-ppt-file-id/view" target="_blank">PPT</a></li>
+            </ul>
+        </div>
+
+        <!-- Links for Class 10 Social Science -->
+        <div class="socialscience10 download-links" style="display:none;">
+            <h3>Social Science - Class 10th</h3>
+            <ul>
+                <li><a href="https://drive.google.com/file/d/your-pdf-file-id/view" target="_blank">PDF Notes</a></li>
+                <li><a href="https://drive.google.com/file/d/your-ppt-file-id/view" target="_blank">PPT</a></li>
+            </ul>
+        </div>
+
+        <!-- Links for Class 10 Maths -->
+        <div class="maths10 download-links" style="display:none;">
+            <h3>Maths - Class 10th</h3>
+            <ul>
+                <li><a href="https://drive.google.com/file/d/your-pdf-file-id/view" target="_blank">PDF Notes</a></li>
+                <li><a href="https://drive.google.com/file/d/your-ppt-file-id/view" target="_blank">PPT</a></li>
+            </ul>
+        </div>
+
+        <!-- Repeat for other subjects and classes -->
+        <!-- Add links for class 11 and 12 in a similar manner -->
     </section>
 
     <footer>
