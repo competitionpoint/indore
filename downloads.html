@@ -6,8 +6,6 @@
   <title>Downloads | Competition Point</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Inline CSS to make demo easier, you can move it to your styles.css */
-
     body {
       font-family: Arial, sans-serif;
       background: #f9f9f9;
@@ -22,9 +20,11 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+      align-items: center;
     }
     header h1 {
       margin: 0;
+      font-size: 1.8rem;
     }
     nav ul {
       list-style: none;
@@ -44,6 +44,7 @@
       background: #444;
       transition: background 0.3s ease;
       display: inline-block;
+      font-size: 0.9rem;
     }
     nav ul li a:hover {
       background: #ff5733;
@@ -52,37 +53,40 @@
     h2 {
       margin-top: 40px;
       margin-bottom: 10px;
-      font-size: 1.8em;
+      font-size: 1.6rem;
       color: #2a2a2a;
     }
 
-    /* Buttons */
     .btn-group {
       margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     button {
       background-color: #2a2a2a;
       color: white;
       border: none;
       padding: 12px 25px;
-      margin: 5px;
       border-radius: 30px;
-      font-size: 16px;
+      font-size: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      flex: 1 1 auto;
+      min-width: 120px;
+      text-align: center;
     }
     button:hover {
       background-color: #ff5733;
       transform: scale(1.05);
     }
 
-    /* Hide all by default */
     .subjects, .chapters {
       display: none;
-      margin-left: 15px;
+      margin-left: 10px;
+      margin-top: 10px;
     }
 
-    /* Download links styling */
     .download-links ul {
       list-style-type: none;
       padding-left: 0;
@@ -94,52 +98,58 @@
       padding: 10px 15px;
       border-radius: 8px;
       transition: background-color 0.3s ease;
+      font-size: 1rem;
     }
     .download-links ul li a {
       text-decoration: none;
       color: #ff5733;
-      font-weight: bold;
+      font-weight: 600;
     }
     .download-links ul li:hover {
       background-color: #ffe6dc;
     }
 
     /* Responsive */
-    @media (max-width: 600px) {
-      button {
-        width: 100%;
-        margin: 8px 0;
-      }
+    @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
       }
       nav ul li {
         margin: 8px 0;
       }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn-group {
+        gap: 8px;
+      }
+      button {
+        min-width: 100%;
+        font-size: 1.1rem;
+        padding: 14px;
+      }
     }
   </style>
 
   <script>
-    // Show subjects for selected class
     function showSubjects(classLevel) {
-      // Hide all subjects and chapters
       document.querySelectorAll(".subjects, .chapters").forEach((el) => {
         el.style.display = "none";
       });
-      // Show subjects of selected class
       const subjects = document.querySelectorAll(`.${classLevel}`);
-      subjects.forEach((el) => (el.style.display = "block"));
+      subjects.forEach((el) => (el.style.display = "flex"));
     }
-
-    // Show chapters (download links) for selected subject
     function showChapters(subject) {
-      // Hide all chapters
       document.querySelectorAll(".chapters").forEach((el) => {
         el.style.display = "none";
       });
-      // Show chapters for selected subject
       const chapters = document.querySelectorAll(`.${subject}`);
       chapters.forEach((el) => (el.style.display = "block"));
+      // Scroll to chapter section for better UX
+      if (chapters.length > 0) {
+        chapters[0].scrollIntoView({ behavior: "smooth" });
+      }
     }
   </script>
 </head>
@@ -170,7 +180,7 @@
 
   <section>
     <h2>Class 10th Subjects</h2>
-    <div class="btn-group subjects class10">
+    <div class="btn-group subjects class10" style="display:none;">
       <button onclick="showChapters('science10')">Science</button>
       <button onclick="showChapters('socialscience10')">Social Science</button>
       <button onclick="showChapters('maths10')">Maths</button>
@@ -179,7 +189,7 @@
 
   <section>
     <h2>Class 11th Subjects</h2>
-    <div class="btn-group subjects class11">
+    <div class="btn-group subjects class11" style="display:none;">
       <button onclick="showChapters('physics11')">Physics</button>
       <button onclick="showChapters('chemistry11')">Chemistry</button>
       <button onclick="showChapters('maths11')">Maths</button>
@@ -189,101 +199,190 @@
 
   <section>
     <h2>Class 12th Subjects</h2>
-    <div class="btn-group subjects class12">
+    <div class="btn-group subjects class12" style="display:none;">
       <button onclick="showChapters('physics12')">Physics</button>
       <button onclick="showChapters('chemistry12')">Chemistry</button>
       <button onclick="showChapters('maths12')">Maths</button>
     </div>
   </section>
 
-  <!-- Download Links (Chapters) -->
-  <section class="download-links chapters science10">
+  <!-- Class 10 Chapters -->
+  <section class="download-links chapters science10" style="display:none;">
     <h3>Science - Class 10th</h3>
     <ul>
-      <li><a href="https://drive.google.com/file/d/CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Chemical Reactions</a></li>
-      <li><a href="https://drive.google.com/file/d/CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Acids, Bases and Salts</a></li>
-      <li><a href="https://drive.google.com/file/d/CHAPTER3_FILE_ID/view" target="_blank">Chapter 3: Metals and Non-metals</a></li>
-      <!-- Add more chapters here -->
+      <li><a href="#" target="_blank">Chapter 1: Chemical Reactions and Equations</a></li>
+      <li><a href="#" target="_blank">Chapter 2: Acids, Bases and Salts</a></li>
+      <li><a href="#" target="_blank">Chapter 3: Metals and Non-metals</a></li>
+      <li><a href="#" target="_blank">Chapter 4: Carbon and its Compounds</a></li>
+      <li><a href="#" target="_blank">Chapter 5: Periodic Classification of Elements</a></li>
+      <li><a href="#" target="_blank">Chapter 6: Life Processes</a></li>
+      <li><a href="#" target="_blank">Chapter 7: Control and Coordination</a></li>
+      <li><a href="#" target="_blank">Chapter 8: How do Organisms Reproduce?</a></li>
+      <li><a href="#" target="_blank">Chapter 9: Heredity and Evolution</a></li>
+      <li><a href="#" target="_blank">Chapter 10: Light – Reflection and Refraction</a></li>
+      <li><a href="#" target="_blank">Chapter 11: Human Eye and Colourful World</a></li>
     </ul>
   </section>
 
-  <section class="download-links chapters socialscience10">
+  <section class="download-links chapters socialscience10" style="display:none;">
     <h3>Social Science - Class 10th</h3>
     <ul>
-      <li><a href="https://drive.google.com/file/d/1wPGBzI0lRZo8hYllc4YR6yhUXLdtuMpm/view?usp=drive_link/view" target="_blank">Civics Notes</a></li>
-      <li><a href="https://drive.google.com/file/d/1kSB8LhSIlxJFutKoYuO0qSFuvZZ3ifwf/view?usp=drive_link/view" target="_blank">Chapter 2: The Rise of Nationalism</a></li>
-      <!-- Add more chapters here -->
+      <li><a href="#" target="_blank">Chapter 1: India and the Contemporary World - I</a></li>
+      <li><a href="#" target="_blank">Chapter 2: Contemporary India - I</a></li>
+      <li><a href="#" target="_blank">Chapter 3: Democratic Politics - I</a></li>
+      <li><a href="#" target="_blank">Chapter 4: Democratic Politics - II</a></li>
+      <li><a href="#" target="_blank">Chapter 5: Economics - I</a></li>
+      <li><a href="#" target="_blank">Chapter 6: Economics - II</a></li>
     </ul>
   </section>
 
-  <section class="download-links chapters maths10">
+  <section class="download-links chapters maths10" style="display:none;">
     <h3>Maths - Class 10th</h3>
     <ul>
-      <li><a href="https://drive.google.com/file/d/CHAPTER1_MATHS_FILE_ID/view" target="_blank">Chapter 1: Real Numbers</a></li>
-      <li><a href="https://drive.google.com/file/d/CHAPTER2_MATHS_FILE_ID/view" target="_blank">Chapter 2: Polynomials</a></li>
-      <!-- Add more chapters here -->
+      <li><a href="#" target="_blank">Chapter 1: Real Numbers</a></li>
+      <li><a href="#" target="_blank">Chapter 2: Polynomials</a></li>
+      <li><a href="#" target="_blank">Chapter 3: Pair of Linear Equations in Two Variables</a></li>
+      <li><a href="#" target="_blank">Chapter 4: Quadratic Equations</a></li>
+      <li><a href="#" target="_blank">Chapter 5: Arithmetic Progressions</a></li>
+      <li><a href="#" target="_blank">Chapter 6: Triangles</a></li>
+      <li><a href="#" target="_blank">Chapter 7: Coordinate Geometry</a></li>
+      <li><a href="#" target="_blank">Chapter 8: Introduction to Trigonometry</a></li>
+      <li><a href="#" target="_blank">Chapter 9: Some Applications of Trigonometry</a></li>
+      <li><a href="#" target="_blank">Chapter 10: Circles</a></li>
+      <li><a href="#" target="_blank">Chapter 11: Constructions</a></li>
+      <li><a href="#" target="_blank">Chapter 12: Areas Related to Circles</a></li>
+      <li><a href="#" target="_blank">Chapter 13: Surface Areas and Volumes</a></li>
+      <li><a href="#" target="_blank">Chapter 14: Statistics</a></li>
+      <li><a href="#" target="_blank">Chapter 15: Probability</a></li>
     </ul>
   </section>
 
-  <!-- Class 11th subjects -->
-  <section class="download-links chapters physics11">
+  <!-- Class 11 Chapters -->
+  <section class="download-links chapters physics11" style="display:none;">
     <h3>Physics - Class 11th</h3>
     <ul>
-      <li><a href="https://drive.google.com/file/d/PHYSICS_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Physical world</a></li>
-      <li><a href="https://drive.google.com/file/d/PHYSICS_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Units and Measurement</a></li>
+      <li><a href="#" target="_blank">Chapter 1: Physical World and Measurement</a></li>
+      <li><a href="#" target="_blank">Chapter 2: Kinematics</a></li>
+      <li><a href="#" target="_blank">Chapter 3: Laws of Motion</a></li>
+      <li><a href="#" target="_blank">Chapter 4: Work, Energy and Power</a></li>
+      <li><a href="#" target="_blank">Chapter 5: Motion of System of Particles and Rigid Body</a></li>
+      <li><a href="#" target="_blank">Chapter 6: Gravitation</a></li>
+      <li><a href="#" target="_blank">Chapter 7: Properties of Bulk Matter</a></li>
+      <li><a href="#" target="_blank">Chapter 8: Thermodynamics</a></li>
+      <li><a href="#" target="_blank">Chapter 9: Behaviour of Perfect Gas and Kinetic Theory</a></li>
+      <li><a href="#" target="_blank">Chapter 10: Oscillations and Waves</a></li>
     </ul>
   </section>
 
-  <section class="download-links chapters chemistry11">
+  <section class="download-links chapters chemistry11" style="display:none;">
     <h3>Chemistry - Class 11th</h3>
     <ul>
-      <li><a href="https://drive.google.com/file/d/CHEMISTRY_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Some Basic Concepts of Chemistry</a></li>
-      <li><a href="https://drive.google.com/file/d/CHEMISTRY_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Structure of Atom</a></li>
+      <li><a href="#" target="_blank">Chapter 1: Some Basic Concepts of Chemistry</a></li>
+      <li><a href="#" target="_blank">Chapter 2: Structure of Atom</a></li>
+      <li><a href="#" target="_blank">Chapter 3: Classification of Elements and Periodicity in Properties</a></li>
+      <li><a href="#" target="_blank">Chapter 4: Chemical Bonding and Molecular Structure</a></li>
+      <li><a href="#" target="_blank">Chapter 5: States of Matter: Gases and Liquids</a></li>
+      <li><a href="#" target="_blank">Chapter 6: Thermodynamics</a></li>
+      <li><a href="#" target="_blank">Chapter 7: Equilibrium</a></li>
+      <li><a href="#" target="_blank">Chapter 8: Redox Reactions</a></li>
+      <li><a href="#" target="_blank">Chapter 9: Hydrogen</a></li>
+      <li><a href="#" target="_blank">Chapter 10: The s-Block Element</a></li>
+      <li><a href="#" target="_blank">Chapter 11: The p-Block Element</a></li>
+      <li><a href="#" target="_blank">Chapter 12: The d- and f-Block Elements</a></li>
+      <li><a href="#" target="_blank">Chapter 13: Coordination Compounds</a></li>
     </ul>
   </section>
 
-  <section class="download-links chapters maths11">
+  <section class="download-links chapters maths11" style="display:none;">
     <h3>Maths - Class 11th</h3>
     <ul>
-      <li><a href="https://drive.google.com/file/d/MATHS_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Sets</a></li>
-      <li><a href="https://drive.google.com/file/d/MATHS_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Relations and Functions</a></li>
+      <li><a href="#" target="_blank">Chapter 1: Sets</a></li>
+      <li><a href="#" target="_blank">Chapter 2: Relations and Functions</a></li>
+      <li><a href="#" target="_blank">Chapter 3: Trigonometric Functions</a></li>
+      <li><a href="#" target="_blank">Chapter 4: Principle of Mathematical Induction</a></li>
+      <li><a href="#" target="_blank">Chapter 5: Complex Numbers and Quadratic Equations</a></li>
+      <li><a href="#" target="_blank">Chapter 6: Linear Inequalities</a></li>
+      <li><a href="#" target="_blank">Chapter 7: Permutations and Combinations</a></li>
+      <li><a href="#" target="_blank">Chapter 8: Binomial Theorem</a></li>
+      <li><a href="#" target="_blank">Chapter 9: Sequences and Series</a></li>
+      <li><a href="#" target="_blank">Chapter 10: Straight Lines</a></li>
+      <li><a href="#" target="_blank">Chapter 11: Conic Sections</a></li>
+      <li><a href="#" target="_blank">Chapter 12: Introduction to Three-dimensional Geometry</a></li>
+      <li><a href="#" target="_blank">Chapter 13: Limits and Derivatives</a></li>
+      <li><a href="#" target="_blank">Chapter 14: Mathematical Reasoning</a></li>
+      <li><a href="#" target="_blank">Chapter 15: Statistics</a></li>
+      <li><a href="#" target="_blank">Chapter 16: Probability</a></li>
     </ul>
   </section>
 
-  <section class="download-links chapters bio11">
+  <section class="download-links chapters bio11" style="display:none;">
     <h3>Biology - Class 11th</h3>
     <ul>
-      <li><a href="https://drive.google.com/file/d/BIO_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: The Living World</a></li>
-      <li><a href="https://drive.google.com/file/d/BIO_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Biological Classification</a></li>
+      <li><a href="#" target="_blank">Chapter 1: The Living World</a></li>
+      <li><a href="#" target="_blank">Chapter 2: Biological Classification</a></li>
+      <li><a href="#" target="_blank">Chapter 3: Plant Kingdom</a></li>
+      <li><a href="#" target="_blank">Chapter 4: Animal Kingdom</a></li>
+      <li><a href="#" target="_blank">Chapter 5: Morphology of Flowering Plants</a></li>
+      <li><a href="#" target="_blank">Chapter 6: Anatomy of Flowering Plants</a></li>
+      <li><a href="#" target="_blank">Chapter 7: Structural Organisation in Animals</a></li>
+      <li><a href="#" target="_blank">Chapter 8: Cell Structure and Function</a></li>
+      <li><a href="#" target="_blank">Chapter 9: Biomolecules</a></li>
+      <li><a href="#" target="_blank">Chapter 10: Cell Cycle and Cell Division</a></li>
     </ul>
   </section>
 
-  <!-- Class 12th subjects -->
-  <section class="download-links chapters physics12">
+  <!-- Class 12 Chapters -->
+  <section class="download-links chapters physics12" style="display:none;">
     <h3>Physics - Class 12th</h3>
     <ul>
-      <li><a href="https://drive.google.com/file/d/PHYSICS12_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Electric Charges and Fields</a></li>
-      <li><a href="https://drive.google.com/file/d/PHYSICS12_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Electrostatic Potential and Capacitance</a></li>
+      <li><a href="#" target="_blank">Chapter 1: Electric Charges and Fields</a></li>
+      <li><a href="#" target="_blank">Chapter 2: Electrostatic Potential and Capacitance</a></li>
+      <li><a href="#" target="_blank">Chapter 3: Current Electricity</a></li>
+      <li><a href="#" target="_blank">Chapter 4: Moving Charges and Magnetism</a></li>
+      <li><a href="#" target="_blank">Chapter 5: Magnetism and Matter</a></li>
+      <li><a href="#" target="_blank">Chapter 6: Electromagnetic Induction</a></li>
+      <li><a href="#" target="_blank">Chapter 7: Alternating Currents</a></li>
+      <li><a href="#" target="_blank">Chapter 8: Electromagnetic Waves</a></li>
     </ul>
   </section>
 
-  <section class="download-links chapters chemistry12">
+  <section class="download-links chapters chemistry12" style="display:none;">
     <h3>Chemistry - Class 12th</h3>
     <ul>
-      <li><a href="https://drive.google.com/file/d/CHEMISTRY12_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Solid State</a></li>
-      <li><a href="https://drive.google.com/file/d/CHEMISTRY12_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Solutions</a></li>
+      <li><a href="#" target="_blank">Chapter 1: Solid State</a></li>
+      <li><a href="#" target="_blank">Chapter 2: Solutions</a></li>
+      <li><a href="#" target="_blank">Chapter 3: Electrochemistry</a></li>
+      <li><a href="#" target="_blank">Chapter 4: Chemical Kinetics</a></li>
+      <li><a href="#" target="_blank">Chapter 5: Surface Chemistry</a></li>
+      <li><a href="#" target="_blank">Chapter 6: The General Principles and Processes of Isolation of Elements</a></li>
+      <li><a href="#" target="_blank">Chapter 7: The p-Block Elements</a></li>
+      <li><a href="#" target="_blank">Chapter 8: The d- and f-Block Elements</a></li>
+      <li><a href="#" target="_blank">Chapter 9: The Coordination Compounds</a></li>
     </ul>
   </section>
 
-  <section class="download-links chapters maths12">
+  <section class="download-links chapters maths12" style="display:none;">
     <h3>Maths - Class 12th</h3>
     <ul>
-      <li><a href="https://drive.google.com/file/d/MATHS12_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Relations and Functions</a></li>
-      <li><a href="https://drive.google.com/file/d/MATHS12_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Inverse Trigonometric Functions</a></li>
+      <li><a href="#" target="_blank">Chapter 1: Relations and Functions</a></li>
+      <li><a href="#" target="_blank">Chapter 2: Inverse Trigonometric Functions</a></li>
+      <li><a href="#" target="_blank">Chapter 3: Matrices</a></li>
+      <li><a href="#" target="_blank">Chapter 4: Determinants</a></li>
+      <li><a href="#" target="_blank">Chapter 5: Continuity and Differentiability</a></li>
+      <li><a href="#" target="_blank">Chapter 6: Application of Derivatives</a></li>
+      <li><a href="#" target="_blank">Chapter 7: Integrals</a></li>
+      <li><a href="#" target="_blank">Chapter 8: Application of Integrals</a></li>
+      <li><a href="#" target="_blank">Chapter 9: Differential Equations</a></li>
+      <li><a href="#" target="_blank">Chapter 10: Vector Algebra</a></li>
+      <li><a href="#" target="_blank">Chapter 11: Three Dimensional Geometry</a></li>
+      <li><a href="#" target="_blank">Chapter 12: Linear Programming</a></li>
+      <li><a href="#" target="_blank">Chapter 13: Probability</a></li>
     </ul>
   </section>
 
-  <footer style="margin-top:40px; text-align:center; padding:20px; background:#2a2a2a; color:white;">
+  <footer
+    style="margin-top:40px; text-align:center; padding:20px; background:#2a2a2a; color:white;"
+  >
     &copy; 2025 Competition Point. All rights reserved.
   </footer>
 </body>
