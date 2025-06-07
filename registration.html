@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Registration | Competition Point</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .registration-section {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .registration-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #2a2a2a;
+    }
+    .registration-section form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+    .registration-section label {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .registration-section input,
+    .registration-section select,
+    .registration-section textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .registration-section button {
+      background-color: #ff5733;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .registration-section button:hover {
+      background-color: #e04e2c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Competition Point Logo" class="logo">
+      <h1>Competition Point</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="registration.html" class="active">Student Registration</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <!-- other nav items -->
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="registration-section">
+      <h2>Student Registration Form</h2>
+      <form id="registration-form">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="fatherName">Father’s Name</label>
+          <input type="text" id="fatherName" name="fatherName" required>
+        </div>
+        <div>
+          <label for="motherName">Mother’s Name</label>
+          <input type="text" id="motherName" name="motherName" required>
+        </div>
+        <div>
+          <label for="classCourse">Class/Course</label>
+          <select id="classCourse" name="classCourse" required>
+            <option value="">Select Class/Course</option>
+            <option>10th</option>
+            <option>11th</option>
+            <option>12th</option>
+            <!-- add more courses if needed -->
+          </select>
+        </div>
+        <div>
+          <label for="school">School</label>
+          <input type="text" id="school" name="school" required>
+        </div>
+        <div>
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" name="dob" required>
+        </div>
+        <div>
+          <label for="admissionDate">Date of Admission</label>
+          <input type="date" id="admissionDate" name="admissionDate" required>
+        </div>
+        <div>
+          <label for="previousResult">Previous Result</label>
+          <input type="text" id="previousResult" name="previousResult">
+        </div>
+        <div>
+          <label for="address">Address</label>
+          <textarea id="address" name="address" rows="3" required></textarea>
+        </div>
+        <div>
+          <label for="mobile">Mobile No.</label>
+          <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Competition Point. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Replace with your Apps Script Web App URL
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzzNeE6NX-eoSSaHhpT4w7Rcm3EXAhffkRD00GJqCGH1ySXZB0t-wS0JnPa734LiojDpw/exec';
+
+    const form = document.getElementById('registration-form');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          alert('Registration successful!');
+          form.reset();
+        } else {
+          alert('Submission failed. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        alert('Error submitting form.');
+      });
+    });
+  </script>
+</body>
+</html>
