@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery | Competition Point</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Gallery grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+      padding: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Competition Point Logo" class="logo">
+      <h1>Competition Point</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="notice.html">Notice Board</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="registration.html">Student Registration</a></li>
+        <li><a href="admin.html">Admin Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gallery-section">
+      <h2>Our Gallery</h2>
+      <div id="gallery" class="gallery"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Competition Point. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // List your image filenames placed in the repository's main folder
+    const imageFiles = [
+      'photo1.png',
+      'photo2.png',
+      'photo3.png',
+      'photo4.png',
+      'photo5.png',
+      'photo6.png',
+      'photo7.png',
+      'photo8.png',
+      'photo9.png',
+      'photo10.png'
+      // add more filenames as needed
+    ];
+
+    const gallery = document.getElementById('gallery');
+    imageFiles.forEach(filename => {
+      const img = document.createElement('img');
+      img.src = filename;
+      img.alt = 'Gallery Image';
+      gallery.appendChild(img);
+    });
+  </script>
+</body>
+</html>
