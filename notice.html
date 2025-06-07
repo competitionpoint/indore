@@ -64,11 +64,13 @@
   </footer>
 
   <script>
-    // Replace with your Google Sheet ID
-    const SHEET_ID = 'YOUR_SHEET_ID';
+    // Google Sheet configuration
+    const SHEET_ID   = '12cK6JQHHgSS_lcDWFU5WYNnXajGCXLXeBzkWGDEdLV0';
     const SHEET_NAME = 'notice';
-    const RANGE = 'A1:A10';
-    const CSV_URL = `https://docs.google.com/spreadsheets/d${12cK6JQHHgSS_lcDWFU5WYNnXajGCXLXeBzkWGDEdLV0}/gviz/tq?tqx=out:csv&sheet=${SHEET_NAME}&range=${RANGE}`;
+    const RANGE      = 'A1:A10';
+
+    // CSV export URL for the specified range
+    const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${SHEET_NAME}&range=${RANGE}`;
 
     fetch(CSV_URL)
       .then(response => response.text())
@@ -76,8 +78,7 @@
         const rows = csvText.trim().split('\n');
         const list = document.getElementById('notice-list');
         list.innerHTML = '';
-        rows.forEach((row, idx) => {
-          // Skip empty rows
+        rows.forEach(row => {
           if (!row) return;
           const li = document.createElement('li');
           li.textContent = row;
@@ -88,7 +89,7 @@
         }
       })
       .catch(err => {
-        console.error(err);
+        console.error('Notice fetch error:', err);
         document.getElementById('notice-list').innerHTML = '<li>Error loading notices.</li>';
       });
   </script>
