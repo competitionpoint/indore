@@ -24,11 +24,10 @@ header {
 }
 
 .logo {
-    width: 60px; /* Adjust the size of the logo */
+    width: 60px;
     height: auto;
     margin-right: 15px;
 }
-
 
 h1 {
     margin: 0;
@@ -36,26 +35,29 @@ h1 {
     letter-spacing: 1px;
 }
 
+/* Navbar */
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;      /* use gap instead of individual margins */
 }
 
 nav ul li {
-    margin: 15px;
+    margin: 0;     /* remove per-li margin */
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 8px 12px;  /* slimmer padding for mobile fit */
     border-radius: 30px;
     background-color: #444;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 nav ul li a:hover {
@@ -146,42 +148,6 @@ footer {
     color: white;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .logo {
-        width: 40px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    .hero h2 {
-        font-size: 30px;
-    }
-
-    .hero p {
-        font-size: 18px;
-    }
-
-    .cta-button {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
-
-    nav ul {
-        justify-content: center;
-        width: 100%;
-    }
-
-    nav ul li {
-        margin: 5px;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-    }
-}
 /* Downloads Page Buttons */
 .btn-group {
     margin-bottom: 20px;
@@ -210,14 +176,6 @@ button.download-btn:hover {
     box-shadow: 0 4px 15px rgba(255, 87, 51, 0.6);
 }
 
-/* Hide subjects and chapters initially */
-.subjects, .chapters {
-    display: none;
-    margin-left: 10px;
-    margin-top: 10px;
-}
-
-/* Download links list style */
 .download-links ul {
     list-style-type: none;
     padding-left: 0;
@@ -243,33 +201,42 @@ button.download-btn:hover {
     background-color: #ffe6dc;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive */
+/* Responsive Styles */
 @media (max-width: 768px) {
+    .logo {
+        width: 40px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    /* Slimmer nav pills on mobile */
+    nav ul li a {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
     .btn-group {
         gap: 8px;
     }
+
     button.download-btn {
         min-width: 100%;
         font-size: 1.1rem;
         padding: 14px;
     }
 }
-
