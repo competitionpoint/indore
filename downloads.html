@@ -1,127 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Downloads | Competition Point</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        // Function to show the subject buttons when a class button is clicked
-        function showSubjects(classLevel) {
-            // Hide all subject buttons first
-            document.querySelectorAll('.subjects').forEach(function(subjectButton) {
-                subjectButton.style.display = 'none';
-            });
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Downloads | Competition Point</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Inline CSS to make demo easier, you can move it to your styles.css */
 
-            // Show the subject buttons for the selected class
-            var subjects = document.querySelectorAll('.' + classLevel);
-            subjects.forEach(function(subjectButton) {
-                subjectButton.style.display = 'inline-block';
-            });
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0 15px 50px;
+      color: #333;
+    }
+    header {
+      background-color: #2a2a2a;
+      padding: 15px 20px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li {
+      margin: 0 10px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background: #444;
+      transition: background 0.3s ease;
+      display: inline-block;
+    }
+    nav ul li a:hover {
+      background: #ff5733;
+    }
 
-        // Function to show the download links when a subject button is clicked
-        function showLinks(subject) {
-            // Hide all links first
-            document.querySelectorAll('.download-links').forEach(function(linkSection) {
-                linkSection.style.display = 'none';
-            });
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      font-size: 1.8em;
+      color: #2a2a2a;
+    }
 
-            // Show the download links for the selected subject
-            var links = document.querySelectorAll('.' + subject);
-            links.forEach(function(linkSection) {
-                linkSection.style.display = 'block';
-            });
-        }
-    </script>
+    /* Buttons */
+    .btn-group {
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #2a2a2a;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      margin: 5px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #ff5733;
+      transform: scale(1.05);
+    }
+
+    /* Hide all by default */
+    .subjects, .chapters {
+      display: none;
+      margin-left: 15px;
+    }
+
+    /* Download links styling */
+    .download-links ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .download-links ul li {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      margin-bottom: 8px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    .download-links ul li a {
+      text-decoration: none;
+      color: #ff5733;
+      font-weight: bold;
+    }
+    .download-links ul li:hover {
+      background-color: #ffe6dc;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      button {
+        width: 100%;
+        margin: 8px 0;
+      }
+      nav ul {
+        flex-direction: column;
+      }
+      nav ul li {
+        margin: 8px 0;
+      }
+    }
+  </style>
+
+  <script>
+    // Show subjects for selected class
+    function showSubjects(classLevel) {
+      // Hide all subjects and chapters
+      document.querySelectorAll(".subjects, .chapters").forEach((el) => {
+        el.style.display = "none";
+      });
+      // Show subjects of selected class
+      const subjects = document.querySelectorAll(`.${classLevel}`);
+      subjects.forEach((el) => (el.style.display = "block"));
+    }
+
+    // Show chapters (download links) for selected subject
+    function showChapters(subject) {
+      // Hide all chapters
+      document.querySelectorAll(".chapters").forEach((el) => {
+        el.style.display = "none";
+      });
+      // Show chapters for selected subject
+      const chapters = document.querySelectorAll(`.${subject}`);
+      chapters.forEach((el) => (el.style.display = "block"));
+    }
+  </script>
 </head>
 <body>
-    <header>
-        <h1>Downloads</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="downloads.html">Downloads</a></li>
-                <li><a href="notice.html">Notice Board</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="registration.html">Student Registration</a></li>
-                <li><a href="admin.html">Admin Login</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>Downloads</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="notice.html">Notice Board</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="registration.html">Student Registration</a></li>
+        <li><a href="admin.html">Admin Login</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section>
-        <h2>Select Class</h2>
-        <!-- Buttons to select class -->
-        <button onclick="showSubjects('class10')">Class 10th</button>
-        <button onclick="showSubjects('class11')">Class 11th</button>
-        <button onclick="showSubjects('class12')">Class 12th</button>
-    </section>
+  <section>
+    <h2>Select Class</h2>
+    <div class="btn-group">
+      <button onclick="showSubjects('class10')">Class 10th</button>
+      <button onclick="showSubjects('class11')">Class 11th</button>
+      <button onclick="showSubjects('class12')">Class 12th</button>
+    </div>
+  </section>
 
-    <section>
-        <h2>Class 10th Subjects</h2>
-        <div class="class10 subjects" style="display:none;">
-            <button onclick="showLinks('science10')">Science</button>
-            <button onclick="showLinks('socialscience10')">Social Science</button>
-            <button onclick="showLinks('maths10')">Maths</button>
-        </div>
-    </section>
+  <section>
+    <h2>Class 10th Subjects</h2>
+    <div class="btn-group subjects class10">
+      <button onclick="showChapters('science10')">Science</button>
+      <button onclick="showChapters('socialscience10')">Social Science</button>
+      <button onclick="showChapters('maths10')">Maths</button>
+    </div>
+  </section>
 
-    <section>
-        <h2>Class 11th Subjects</h2>
-        <div class="class11 subjects" style="display:none;">
-            <button onclick="showLinks('physics11')">Physics</button>
-            <button onclick="showLinks('chemistry11')">Chemistry</button>
-            <button onclick="showLinks('maths11')">Maths</button>
-            <button onclick="showLinks('bio11')">Biology</button>
-        </div>
-    </section>
+  <section>
+    <h2>Class 11th Subjects</h2>
+    <div class="btn-group subjects class11">
+      <button onclick="showChapters('physics11')">Physics</button>
+      <button onclick="showChapters('chemistry11')">Chemistry</button>
+      <button onclick="showChapters('maths11')">Maths</button>
+      <button onclick="showChapters('bio11')">Biology</button>
+    </div>
+  </section>
 
-    <section>
-        <h2>Class 12th Subjects</h2>
-        <div class="class12 subjects" style="display:none;">
-            <button onclick="showLinks('physics12')">Physics</button>
-            <button onclick="showLinks('chemistry12')">Chemistry</button>
-            <button onclick="showLinks('maths12')">Maths</button>
-            <button onclick="showLinks('bio12')">Biology</button>
-        </div>
-    </section>
+  <section>
+    <h2>Class 12th Subjects</h2>
+    <div class="btn-group subjects class12">
+      <button onclick="showChapters('physics12')">Physics</button>
+      <button onclick="showChapters('chemistry12')">Chemistry</button>
+      <button onclick="showChapters('maths12')">Maths</button>
+    </div>
+  </section>
 
-    <section>
-        <!-- Links for Class 10 Science -->
-        <div class="science10 download-links" style="display:none;">
-            <h3>Science - Class 10th</h3>
-            <ul>
-                <li><a href="https://drive.google.com/file/d/1o9eC8C2_79wpL8sVpZNFe2NUVqdTQWSH/view?usp=drive_link/view" target="_blank">PDF Notes</a></li>
-                
-            </ul>
-        </div>
+  <!-- Download Links (Chapters) -->
+  <section class="download-links chapters science10">
+    <h3>Science - Class 10th</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Chemical Reactions</a></li>
+      <li><a href="https://drive.google.com/file/d/CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Acids, Bases and Salts</a></li>
+      <li><a href="https://drive.google.com/file/d/CHAPTER3_FILE_ID/view" target="_blank">Chapter 3: Metals and Non-metals</a></li>
+      <!-- Add more chapters here -->
+    </ul>
+  </section>
 
-        <!-- Links for Class 10 Social Science -->
-        <div class="socialscience10 download-links" style="display:none;">
-            <h3>Social Science - Class 10th</h3>
-            <ul>
-                <li><a href="https://drive.google.com/file/d/your-pdf-file-id/view" target="_blank">PDF Notes</a></li>
-                <li><a href="https://drive.google.com/file/d/your-ppt-file-id/view" target="_blank">PPT</a></li>
-            </ul>
-        </div>
+  <section class="download-links chapters socialscience10">
+    <h3>Social Science - Class 10th</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/1wPGBzI0lRZo8hYllc4YR6yhUXLdtuMpm/view?usp=drive_link/view" target="_blank">Civics Notes</a></li>
+      <li><a href="https://drive.google.com/file/d/1kSB8LhSIlxJFutKoYuO0qSFuvZZ3ifwf/view?usp=drive_link/view" target="_blank">Chapter 2: The Rise of Nationalism</a></li>
+      <!-- Add more chapters here -->
+    </ul>
+  </section>
 
-        <!-- Links for Class 10 Maths -->
-        <div class="maths10 download-links" style="display:none;">
-            <h3>Maths - Class 10th</h3>
-            <ul>
-                <li><a href="https://drive.google.com/file/d/your-pdf-file-id/view" target="_blank">PDF Notes</a></li>
-                <li><a href="https://drive.google.com/file/d/your-ppt-file-id/view" target="_blank">PPT</a></li>
-            </ul>
-        </div>
+  <section class="download-links chapters maths10">
+    <h3>Maths - Class 10th</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/CHAPTER1_MATHS_FILE_ID/view" target="_blank">Chapter 1: Real Numbers</a></li>
+      <li><a href="https://drive.google.com/file/d/CHAPTER2_MATHS_FILE_ID/view" target="_blank">Chapter 2: Polynomials</a></li>
+      <!-- Add more chapters here -->
+    </ul>
+  </section>
 
-        <!-- Repeat for other subjects and classes -->
-        <!-- Add links for class 11 and 12 in a similar manner -->
-    </section>
+  <!-- Class 11th subjects -->
+  <section class="download-links chapters physics11">
+    <h3>Physics - Class 11th</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/PHYSICS_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Physical world</a></li>
+      <li><a href="https://drive.google.com/file/d/PHYSICS_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Units and Measurement</a></li>
+    </ul>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 Competition Point. All rights reserved.</p>
-    </footer>
+  <section class="download-links chapters chemistry11">
+    <h3>Chemistry - Class 11th</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/CHEMISTRY_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Some Basic Concepts of Chemistry</a></li>
+      <li><a href="https://drive.google.com/file/d/CHEMISTRY_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Structure of Atom</a></li>
+    </ul>
+  </section>
+
+  <section class="download-links chapters maths11">
+    <h3>Maths - Class 11th</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/MATHS_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Sets</a></li>
+      <li><a href="https://drive.google.com/file/d/MATHS_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Relations and Functions</a></li>
+    </ul>
+  </section>
+
+  <section class="download-links chapters bio11">
+    <h3>Biology - Class 11th</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/BIO_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: The Living World</a></li>
+      <li><a href="https://drive.google.com/file/d/BIO_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Biological Classification</a></li>
+    </ul>
+  </section>
+
+  <!-- Class 12th subjects -->
+  <section class="download-links chapters physics12">
+    <h3>Physics - Class 12th</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/PHYSICS12_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Electric Charges and Fields</a></li>
+      <li><a href="https://drive.google.com/file/d/PHYSICS12_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Electrostatic Potential and Capacitance</a></li>
+    </ul>
+  </section>
+
+  <section class="download-links chapters chemistry12">
+    <h3>Chemistry - Class 12th</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/CHEMISTRY12_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Solid State</a></li>
+      <li><a href="https://drive.google.com/file/d/CHEMISTRY12_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Solutions</a></li>
+    </ul>
+  </section>
+
+  <section class="download-links chapters maths12">
+    <h3>Maths - Class 12th</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/MATHS12_CHAPTER1_FILE_ID/view" target="_blank">Chapter 1: Relations and Functions</a></li>
+      <li><a href="https://drive.google.com/file/d/MATHS12_CHAPTER2_FILE_ID/view" target="_blank">Chapter 2: Inverse Trigonometric Functions</a></li>
+    </ul>
+  </section>
+
+  <footer style="margin-top:40px; text-align:center; padding:20px; background:#2a2a2a; color:white;">
+    &copy; 2025 Competition Point. All rights reserved.
+  </footer>
 </body>
 </html>
