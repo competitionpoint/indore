@@ -182,3 +182,94 @@ footer {
         font-size: 14px;
     }
 }
+/* Downloads Page Buttons */
+.btn-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button.download-btn {
+    background-color: #2a2a2a;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 auto;
+    min-width: 120px;
+    text-align: center;
+}
+
+button.download-btn:hover {
+    background-color: #ff5733;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 87, 51, 0.6);
+}
+
+/* Hide subjects and chapters initially */
+.subjects, .chapters {
+    display: none;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+/* Download links list style */
+.download-links ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.download-links ul li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.download-links ul li a {
+    text-decoration: none;
+    color: #ff5733;
+    font-weight: 600;
+}
+
+.download-links ul li:hover {
+    background-color: #ffe6dc;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .btn-group {
+        gap: 8px;
+    }
+    button.download-btn {
+        min-width: 100%;
+        font-size: 1.1rem;
+        padding: 14px;
+    }
+}
+
