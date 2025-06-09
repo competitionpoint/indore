@@ -1,58 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Competition Point</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Competition Point</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Video container styling */
+    .hero-video {
+      max-width: 800px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .hero-video video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    @media (max-width: 600px) {
+      .hero-video {
+        max-width: 100%;
+        margin: 10px 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="Competition Point Logo" class="logo">
-            <h1>Competition Point</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="downloads.html">Downloads</a></li>
-                <li><a href="notice.html">Notice Board</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="registration.html">Student Registration</a></li>
-                <li><a href="admin.html">Admin Login</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Competition Point Logo" class="logo">
+      <h1>Competition Point</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="notice.html">Notice Board</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="registration.html">Student Registration</a></li>
+        <li><a href="admin.html">Admin Login</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section class="hero">
-        <h2>Welcome to Competition Point</h2>
-        <p>Your pathway to success in competitive exams.</p>
-        <a href="registration.html" class="cta-button">Join Now</a>
-    </section>
+  <section class="hero">
+    <h2>Welcome to Competition Point</h2>
+    <p>Fueling young minds for a smarter tomorrow....</p>
+    <!-- Video Reel Embed -->
+    <div class="hero-video">
+      <video 
+        src="intro.mp4" 
+        poster="video-poster.jpg"
+        autoplay muted loop playsinline
+      >
+        <source src="intro.webm" type="video/webm">
+        Sorry, your browser doesn't support embedded videos.
+      </video>
+    </div>
+    <a href="registration.html" class="cta-button">Join Now</a>
+  </section>
 
-    <section>
-        <h2>About Us</h2>
-        <p>At Competition Point, we aim to provide the best coaching for students from classes 6th to 12th. Our experienced faculty, smart classes, and interactive teaching methods have been delivering outstanding results for over 6 years.</p>
-    </section>
+  <section>
+    <h2>About Us</h2>
+    <p>At Competition Point, we aim to provide the best coaching for students from classes 6th to 12th. Our experienced faculty, smart classes, and interactive teaching methods have been delivering outstanding results for over 6 years.</p>
+  </section>
 
-    <section>
-        <h2>Our Services</h2>
-        <ul>
-            <li>Expert Faculty</li>
-            <li>Smart Classes</li>
-            <li>Interactive Demonstrations</li>
-            <li>Regular Tests and Doubt Clearing Sessions</li>
-        </ul>
-    </section>
+  <section>
+    <h2>Our Services</h2>
+    <ul>
+      <li>Expert Faculty</li>
+      <li>Smart Classes</li>
+      <li>Interactive Demonstrations</li>
+      <li>Regular Tests and Doubt Clearing Sessions</li>
+    </ul>
+  </section>
 
-    <section>
-        <h2>Contact Us</h2>
-        <p>Phone: +91 9977552106</p>
-    </section>
+  <section>
+    <h2>Contact Us</h2>
+    <p>Phone: +91 9977552106</p>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 Competition Point. All rights reserved.</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Competition Point. All rights reserved.</p>
+  </footer>
 </body>
 </html>
