@@ -30,13 +30,18 @@
       margin: 12px 0;
       font-size: 1rem;
     }
-    .contact-list img.icon {
+    /* Universal icon sizing */
+    img.icon {
       width: 24px;
       height: 24px;
+      object-fit: contain;
       margin-right: 12px;
     }
     .branch {
       margin-top: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .branch h3 {
       font-size: 22px;
@@ -44,6 +49,8 @@
       color: #2a2a2a;
     }
     .branch p {
+      display: flex;
+      align-items: center;
       margin: 4px 0;
       font-size: 1rem;
     }
@@ -66,7 +73,6 @@
         <li><a href="admin.html">Admin Login</a></li>
       </ul>
     </nav>
-  </header>
 
   <main>
     <section class="contact-section">
@@ -75,7 +81,8 @@
         <li><img src="instagram.png" alt="Instagram" class="icon"><a href="https://instagram.com/competitionpoint" target="_blank">@competitionpoint</a></li>
         <li><img src="facebook.png" alt="Facebook" class="icon"><a href="https://facebook.com/competitionpoint" target="_blank">/competitionpoint</a></li>
         <li><img src="contact.png" alt="Phone" class="icon">Enquiry: <a href="tel:9977552106">9977552106</a>, <a href="tel:7024253180">7024253180</a></li>
-   </ul>
+        <li><img src="contact.png" alt="Owner" class="icon">Owner (Pooja Bagwan): <a href="tel:8517935887">8517935887</a></li>
+      </ul>
 
       <div class="branch">
         <h3>Branch 1</h3>
