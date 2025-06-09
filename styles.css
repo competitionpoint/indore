@@ -22,6 +22,24 @@ header {
     display: flex;
     align-items: center;
 }
+.hero-video {
+  max-width: 800px;       /* limit width on large screens */
+  margin: 20px auto;      /* center */
+  overflow: hidden;
+  border-radius: 8px;
+}
+.hero-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 600px) {
+  .hero-video {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+}
+
 
 .logo {
     width: 60px;
