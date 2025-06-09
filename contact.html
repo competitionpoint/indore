@@ -12,11 +12,13 @@
       background-color: white;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      color: #333; /* ensure default text is dark */
     }
     .contact-section h2 {
       font-size: 28px;
       margin-bottom: 15px;
       text-align: center;
+      color: #2a2a2a;
     }
     .contact-list {
       list-style: none;
@@ -29,8 +31,15 @@
       align-items: center;
       margin: 12px 0;
       font-size: 1rem;
+      color: #333;
     }
-    /* Universal icon sizing */
+    .contact-list a {
+      color: #2a2a2a;
+      text-decoration: none;
+    }
+    .contact-list a:hover {
+      text-decoration: underline;
+    }
     img.icon {
       width: 24px;
       height: 24px;
@@ -53,6 +62,14 @@
       align-items: center;
       margin: 4px 0;
       font-size: 1rem;
+      color: #333; /* dark text for address */
+    }
+    .branch p a {
+      color: #2a2a2a;
+      text-decoration: none;
+    }
+    .branch p a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -73,29 +90,43 @@
         <li><a href="admin.html">Admin Login</a></li>
       </ul>
     </nav>
-
   <main>
     <section class="contact-section">
       <h2>Contact Us</h2>
       <ul class="contact-list">
-        <li><img src="instagram.png" alt="Instagram" class="icon"><a href="https://instagram.com/competitionpoint" target="_blank">@competitionpoint</a></li>
-        <li><img src="facebook.png" alt="Facebook" class="icon"><a href="https://facebook.com/competitionpoint" target="_blank">/competitionpoint</a></li>
-        <li><img src="contact.png" alt="Phone" class="icon">Enquiry: <a href="tel:9977552106">9977552106</a>, <a href="tel:7024253180">7024253180</a></li>
-        <li><img src="contact.png" alt="Owner" class="icon">Owner (Pooja Bagwan): <a href="tel:8517935887">8517935887</a></li>
+        <li>
+          <img src="instagram.png" alt="Instagram" class="icon">
+          <a href="https://instagram.com/competitionpoint" target="_blank">@competitionpoint</a>
+        </li>
+        <li>
+          <img src="facebook.png" alt="Facebook" class="icon">
+          <a href="https://facebook.com/competitionpoint" target="_blank">/competitionpoint</a>
+        </li>
+        <li>
+          <img src="contact.png" alt="Phone" class="icon">
+          Enquiry: <a href="tel:9977552106">9977552106</a>, <a href="tel:7024253180">7024253180</a>
+        </li>
+        <li>
+          <img src="contact.png" alt="Owner" class="icon">
+          Owner (Pooja Bagwan): <a href="tel:8517935887">8517935887</a>
+        </li>
       </ul>
-
       <div class="branch">
         <h3>Branch 1</h3>
-        <p><img src="location.png" alt="Address" class="icon">58, Galaxy Park Colony, Asarawad Khurd, Khandwa Road, Indore 452020</p>
+        <p>
+          <img src="location.png" alt="Address" class="icon">
+          58, Galaxy Park Colony, Asarawad Khurd, Khandwa Road, Indore 452020
+        </p>
       </div>
-
       <div class="branch">
         <h3>Branch 2</h3>
-        <p><img src="location.png" alt="Address" class="icon">A-23, Brijnayani Colony, Limbodi, Khandwa Road, Indore 452001</p>
+        <p>
+          <img src="location.png" alt="Address" class="icon">
+          A-23, Brijnayani Colony, Limbodi, Khandwa Road, Indore 452001
+        </p>
       </div>
     </section>
   </main>
-
   <footer>
     <p>&copy; 2025 Competition Point. All rights reserved.</p>
   </footer>
