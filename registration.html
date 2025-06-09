@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Student Registration | Competition Point</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   <style>
     .registration-section {
       max-width: 600px;
@@ -28,6 +28,7 @@
     .registration-section label {
       font-weight: 600;
       margin-bottom: 5px;
+      display: block;
     }
     .registration-section input,
     .registration-section select,
@@ -56,15 +57,18 @@
 <body>
   <header>
     <div class="logo-container">
-      <img src="logo.png" alt="Competition Point Logo" class="logo">
+      <img src="logo.png" alt="Competition Point Logo" class="logo" />
       <h1>Competition Point</h1>
     </div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="registration.html" class="active">Student Registration</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="notice.html">Notice Board</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <!-- other nav items -->
+        <li><a href="registration.html" class="active">Student Registration</a></li>
+        <li><a href="admin.html">Admin Login</a></li>
       </ul>
     </nav>
   </header>
@@ -75,15 +79,15 @@
       <form id="registration-form">
         <div>
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
+          <input type="text" id="name" name="name" required />
         </div>
         <div>
           <label for="fatherName">Father’s Name</label>
-          <input type="text" id="fatherName" name="fatherName" required>
+          <input type="text" id="fatherName" name="fatherName" required />
         </div>
         <div>
           <label for="motherName">Mother’s Name</label>
-          <input type="text" id="motherName" name="motherName" required>
+          <input type="text" id="motherName" name="motherName" required />
         </div>
         <div>
           <label for="classCourse">Class/Course</label>
@@ -99,24 +103,23 @@
             <option>10th</option>
             <option>11th</option>
             <option>12th</option>
-            <!-- add more courses if needed -->
           </select>
         </div>
         <div>
           <label for="school">School</label>
-          <input type="text" id="school" name="school" required>
+          <input type="text" id="school" name="school" required />
         </div>
         <div>
           <label for="dob">Date of Birth</label>
-          <input type="date" id="dob" name="dob" required>
+          <input type="date" id="dob" name="dob" required />
         </div>
         <div>
           <label for="admissionDate">Date of Admission</label>
-          <input type="date" id="admissionDate" name="admissionDate" required>
+          <input type="date" id="admissionDate" name="admissionDate" required />
         </div>
         <div>
           <label for="previousResult">Previous Result</label>
-          <input type="text" id="previousResult" name="previousResult">
+          <input type="text" id="previousResult" name="previousResult" />
         </div>
         <div>
           <label for="address">Address</label>
@@ -124,7 +127,13 @@
         </div>
         <div>
           <label for="mobile">Mobile No.</label>
-          <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+          <input
+            type="tel"
+            id="mobile"
+            name="mobile"
+            pattern="[0-9]{10}"
+            required
+          />
         </div>
         <button type="submit">Submit</button>
       </form>
@@ -137,28 +146,30 @@
 
   <script>
     // Replace with your Apps Script Web App URL
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzzNeE6NX-eoSSaHhpT4w7Rcm3EXAhffkRD00GJqCGH1ySXZB0t-wS0JnPa734LiojDpw/exec';
+    const SCRIPT_URL =
+      'https://script.google.com/macros/s/AKfycbzzNeE6NX-eoSSaHhpT4w7Rcm3EXAhffkRD00GJqCGH1ySXZB0t-wS0JnPa734LiojDpw/exec';
 
     const form = document.getElementById('registration-form');
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       const formData = new FormData(form);
+
       fetch(SCRIPT_URL, {
         method: 'POST',
-        body: formData
+        body: formData,
       })
-      .then(response => {
-        if (response.ok) {
-          alert('Registration successful!');
-          form.reset();
-        } else {
-          alert('Submission failed. Please try again.');
-        }
-      })
-      .catch(error => {
-        console.error('Error!', error.message);
-        alert('Error submitting form.');
-      });
+        .then((response) => {
+          if (response.ok) {
+            alert('Registration successful!');
+            form.reset();
+          } else {
+            alert('Submission failed. Please try again.');
+          }
+        })
+        .catch((error) => {
+          console.error('Error!', error);
+          alert('Error submitting form.');
+        });
     });
   </script>
 </body>
