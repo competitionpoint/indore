@@ -1,242 +1,269 @@
-/* Global Styles */
+/* styles.css */
+
+/* Global Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.5;
 }
 
+/* Header & Logo */
 header {
-    background-color: #2a2a2a;
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #2a2a2a;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-
 .logo-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
-
 .logo {
-    width: 60px;
-    height: auto;
-    margin-right: 15px;
+  width: 60px;
+  margin-right: 12px;
 }
-
 h1 {
-    margin: 0;
-    font-size: 30px;
-    letter-spacing: 1px;
+  font-size: 1.75rem;
+  letter-spacing: 1px;
 }
 
-/* Navbar */
+/* Navigation */
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;      /* use gap instead of individual margins */
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;               /* spacing between pills */
+  justify-content: center;
 }
-
 nav ul li {
-    margin: 0;     /* remove per-li margin */
+  margin: 0;              /* remove old per-li margin */
 }
-
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 8px 12px;  /* slimmer padding for mobile fit */
-    border-radius: 30px;
-    background-color: #444;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  background-color: #444;
+  color: #fff;
+  padding: 8px 12px;      /* slimmer by default */
+  border-radius: 30px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
 }
-
-nav ul li a:hover {
-    background-color: #ff5733;
-    transform: scale(1.1);
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #ff5733;
+  transform: scale(1.05);
 }
 
 /* Hero Section */
 .hero {
-    background: url('background-image.jpg') no-repeat center center/cover;
-    text-align: center;
-    padding: 100px 20px;
-    color: white;
-    font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 40px 20px;
 }
-
 .hero h2 {
-    font-size: 36px;
-    font-weight: bold;
+  color: #2a2a2a;
+  font-size: 2rem;
+  margin-bottom: 8px;
 }
-
 .hero p {
-    font-size: 20px;
-    margin-top: 10px;
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
 }
 
+/* Video Embed */
+.hero-video {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.hero-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Call-to-Action Button */
 .cta-button {
-    margin-top: 20px;
-    background-color: #ff5733;
-    padding: 12px 25px;
-    font-size: 18px;
-    color: white;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color: #ff5733;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
 }
-
 .cta-button:hover {
-    background-color: #e04e2c;
-    transform: scale(1.1);
+  background-color: #e04e2c;
+  transform: scale(1.05);
 }
 
 /* Section Styles */
 section {
-    padding: 40px;
-    margin: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin: 20px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-
 section h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
 }
-
-section p {
-    font-size: 18px;
-    line-height: 1.6;
+section p,
+section ul li {
+  font-size: 1rem;
+  margin-bottom: 8px;
 }
 
 /* Services List */
 section ul {
-    list-style-type: none;
-    padding: 0;
+  list-style: none;
 }
-
 section ul li {
-    font-size: 18px;
-    margin: 10px 0;
-    position: relative;
-    padding-left: 30px;
+  position: relative;
+  padding-left: 24px;
 }
-
 section ul li::before {
-    content: '✔';
-    position: absolute;
-    left: 0;
-    color: #ff5733;
-    font-size: 20px;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #2a2a2a;
-    color: white;
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #ff5733;
 }
 
 /* Downloads Page Buttons */
 .btn-group {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
 }
-
 button.download-btn {
-    background-color: #2a2a2a;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    flex: 1 1 auto;
-    min-width: 120px;
-    text-align: center;
+  flex: 1 1 auto;
+  min-width: 120px;
+  background-color: #2a2a2a;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
-
 button.download-btn:hover {
-    background-color: #ff5733;
-    transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(255, 87, 51, 0.6);
+  background-color: #ff5733;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255,87,51,0.6);
 }
-
+.subjects,
+.chapters {
+  display: none;
+  margin-top: 20px;
+}
 .download-links ul {
-    list-style-type: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
-
 .download-links ul li {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    margin-bottom: 8px;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
 }
-
-.download-links ul li a {
-    text-decoration: none;
-    color: #ff5733;
-    font-weight: 600;
-}
-
 .download-links ul li:hover {
-    background-color: #ffe6dc;
+  background-color: #ffe6dc;
+}
+.download-links ul li a {
+  text-decoration: none;
+  color: #ff5733;
+  font-weight: 600;
 }
 
-/* Responsive Styles */
+/* Contact & Icons */
+img.icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+.contact-list li,
+.branch p {
+  color: #2a2a2a;  /* ensure legibility */
+}
+
+/* Notice Board Styles */
+.notice-section {
+  padding: 20px;
+  margin: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.notice-section h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #2a2a2a;
+}
+#notice-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+#notice-list li {
+  background: #f5f5f5;
+  margin: 8px 0;
+  padding: 12px 16px 12px 24px;  /* extra left padding */
+  border-left: 4px solid #ff5733;
+  font-size: 1rem;
+  color: #2a2a2a;
+}
+#notice-list li a {
+  color: #ff5733;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  background-color: #2a2a2a;
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+  font-size: 0.9rem;
+}
+
+/* Responsive Media Queries */
 @media (max-width: 768px) {
-    .logo {
-        width: 40px;
-    }
+  .logo { width: 40px; }
+  h1 { font-size: 1.5rem; }
+  nav ul li a {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+  section { margin: 15px; padding: 20px; }
+  .hero h2 { font-size: 1.75rem; }
+  .hero p { font-size: 1rem; }
+}
 
-    h1 {
-        font-size: 24px;
-    }
-
-    .hero h2 {
-        font-size: 30px;
-    }
-
-    .hero p {
-        font-size: 18px;
-    }
-
-    .cta-button {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
-
-    /* Slimmer nav pills on mobile */
-    nav ul li a {
-        padding: 6px 10px;
-        font-size: 14px;
-    }
-
-    .btn-group {
-        gap: 8px;
-    }
-
-    button.download-btn {
-        min-width: 100%;
-        font-size: 1.1rem;
-        padding: 14px;
-    }
+@media (max-width: 600px) {
+  button.download-btn { min-width: 100%; font-size: 1.05rem; }
+  .hero-video { margin: 10px 0 20px; }
 }
