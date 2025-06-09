@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Notice Board | Competition Point</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   <style>
     .notice-section {
       padding: 20px;
@@ -17,10 +17,13 @@
       font-size: 28px;
       margin-bottom: 15px;
       text-align: center;
+      color: #2a2a2a;
     }
     #notice-list {
       list-style: none;
       padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
     }
     #notice-list li {
       background: #f5f5f5;
@@ -28,13 +31,19 @@
       padding: 12px;
       border-left: 4px solid #ff5733;
       font-size: 1rem;
+      color: #2a2a2a;
+    }
+    #notice-list li a {
+      color: #ff5733;
+      text-decoration: none;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="logo-container">
-      <img src="logo.png" alt="Competition Point Logo" class="logo">
+      <img src="logo.png" alt="Competition Point Logo" class="logo" />
       <h1>Competition Point</h1>
     </div>
     <nav>
@@ -54,7 +63,11 @@
     <section class="notice-section">
       <h2>Latest Notices</h2>
       <ul id="notice-list">
-        <li>Loading notices...</li>
+        <li>Please park your vehicles in the designated area only.</li>
+        <li>Class 10<sup>th</sup> and Class 12<sup>th</sup> batches have started. <a href="registration.html">Register now</a> to secure your seat.</li>
+        <li>Interested students may join by using our <a href="registration.html">Student Registration</a> link.</li>
+        <li>Our new branch is opening soon at:<br>
+            First Floor, Behind Gurukripa Furniture, Opp. Bank of India, Tejaji Nagar, Khandwa Road, Indore.</li>
       </ul>
     </section>
   </main>
@@ -62,36 +75,5 @@
   <footer>
     <p>&copy; 2025 Competition Point. All rights reserved.</p>
   </footer>
-
-  <script>
-    // Google Sheet configuration
-    const SHEET_ID   = '12cK6JQHHgSS_lcDWFU5WYNnXajGCXLXeBzkWGDEdLV0';
-    const SHEET_NAME = 'notice';
-    const RANGE      = 'A1:A10';
-
-    // CSV export URL for the specified range
-    const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${SHEET_NAME}&range=${RANGE}`;
-
-    fetch(CSV_URL)
-      .then(response => response.text())
-      .then(csvText => {
-        const rows = csvText.trim().split('\n');
-        const list = document.getElementById('notice-list');
-        list.innerHTML = '';
-        rows.forEach(row => {
-          if (!row) return;
-          const li = document.createElement('li');
-          li.textContent = row;
-          list.appendChild(li);
-        });
-        if (list.children.length === 0) {
-          list.innerHTML = '<li>No notices available.</li>';
-        }
-      })
-      .catch(err => {
-        console.error('Notice fetch error:', err);
-        document.getElementById('notice-list').innerHTML = '<li>Error loading notices.</li>';
-      });
-  </script>
 </body>
 </html>
