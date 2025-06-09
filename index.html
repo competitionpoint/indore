@@ -25,6 +25,35 @@
         margin: 10px 0;
       }
     }
+    /* Hero section styling */
+    .hero {
+      background-color: #f9f9f9;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .hero h2 {
+      color: #2a2a2a;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      color: #555;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .cta-button {
+      background-color: #ff5733;
+      color: white;
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #e04e2c;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -48,13 +77,13 @@
 
   <section class="hero">
     <h2>Welcome to Competition Point</h2>
-    <p>Fueling young minds for a smarter tomorrow....</p>
-    <!-- Video Reel Embed -->
+    <p>Fueling young minds for a smarter tomorrow…</p>
+    <!-- Video Reel Embed (muted autoplay, user can unmute via controls) -->
     <div class="hero-video">
-      <video 
-        src="intro.mp4" 
-        poster="banner.jpg"
-        autoplay muted loop playsinline
+      <video
+        src="intro.mp4"
+        poster="video-poster.jpg"
+        autoplay muted controls playsinline
       >
         <source src="intro.webm" type="video/webm">
         Sorry, your browser doesn't support embedded videos.
