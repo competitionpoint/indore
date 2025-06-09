@@ -1,260 +1,96 @@
-/* Global Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-header {
-    background-color: #2a2a2a;
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-.hero-video {
-  max-width: 800px;       /* limit width on large screens */
-  margin: 20px auto;      /* center */
-  overflow: hidden;
-  border-radius: 8px;
-}
-.hero-video video {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-@media (max-width: 600px) {
-  .hero-video {
-    max-width: 100%;
-    margin: 10px 0;
-  }
-}
-
-
-.logo {
-    width: 60px;
-    height: auto;
-    margin-right: 15px;
-}
-
-h1 {
-    margin: 0;
-    font-size: 30px;
-    letter-spacing: 1px;
-}
-
-/* Navbar */
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;      /* use gap instead of individual margins */
-}
-
-nav ul li {
-    margin: 0;     /* remove per-li margin */
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 8px 12px;  /* slimmer padding for mobile fit */
-    border-radius: 30px;
-    background-color: #444;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-nav ul li a:hover {
-    background-color: #ff5733;
-    transform: scale(1.1);
-}
-
-/* Hero Section */
-.hero {
-    background: url('background-image.jpg') no-repeat center center/cover;
-    text-align: center;
-    padding: 100px 20px;
-    color: white;
-    font-family: 'Arial', sans-serif;
-}
-
-.hero h2 {
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.hero p {
-    font-size: 20px;
-    margin-top: 10px;
-}
-
-.cta-button {
-    margin-top: 20px;
-    background-color: #ff5733;
-    padding: 12px 25px;
-    font-size: 18px;
-    color: white;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #e04e2c;
-    transform: scale(1.1);
-}
-
-/* Section Styles */
-section {
-    padding: 40px;
-    margin: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-section h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-section p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-/* Services List */
-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-section ul li {
-    font-size: 18px;
-    margin: 10px 0;
-    position: relative;
-    padding-left: 30px;
-}
-
-section ul li::before {
-    content: '✔';
-    position: absolute;
-    left: 0;
-    color: #ff5733;
-    font-size: 20px;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #2a2a2a;
-    color: white;
-}
-
-/* Downloads Page Buttons */
-.btn-group {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-button.download-btn {
-    background-color: #2a2a2a;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    flex: 1 1 auto;
-    min-width: 120px;
-    text-align: center;
-}
-
-button.download-btn:hover {
-    background-color: #ff5733;
-    transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(255, 87, 51, 0.6);
-}
-
-.download-links ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.download-links ul li {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    margin-bottom: 8px;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
-}
-
-.download-links ul li a {
-    text-decoration: none;
-    color: #ff5733;
-    font-weight: 600;
-}
-
-.download-links ul li:hover {
-    background-color: #ffe6dc;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .logo {
-        width: 40px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Competition Point</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Video container styling */
+    .hero-video {
+      max-width: 800px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-
-    h1 {
-        font-size: 24px;
+    .hero-video video {
+      display: block;
+      width: 100%;
+      height: auto;
     }
-
-    .hero h2 {
-        font-size: 30px;
+    @media (max-width: 600px) {
+      .hero-video {
+        max-width: 100%;
+        margin: 10px 0;
+      }
     }
-
-    .hero p {
-        font-size: 18px;
+    /* Ensure hero text is visible against light backgrounds */
+    .hero {
+      background-color: #f9f9f9;
+      color: #2a2a2a;
+      padding: 40px 20px;
     }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Competition Point Logo" class="logo">
+      <h1>Competition Point</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="downloads.html">Downloads</a></li>
+        <li><a href="notice.html">Notice Board</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="registration.html">Student Registration</a></li>
+        <li><a href="admin.html">Admin Login</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    .cta-button {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
+  <section class="hero">
+    <h2>Welcome to Competition Point</h2>
+    <p>Your pathway to success in competitive exams.</p>
+    <!-- Video Reel Embed -->
+    <div class="hero-video">
+      <video 
+        src="intro.mp4" 
+        poster="video-poster.jpg"
+        controls playsinline
+      >
+        <source src="intro.webm" type="video/webm">
+        Sorry, your browser doesn't support embedded videos.
+      </video>
+    </div>
+    <a href="registration.html" class="cta-button">Join Now</a>
+  </section>
 
-    /* Slimmer nav pills on mobile */
-    nav ul li a {
-        padding: 6px 10px;
-        font-size: 14px;
-    }
+  <section>
+    <h2>About Us</h2>
+    <p>At Competition Point, we aim to provide the best coaching for students from classes 6th to 12th. Our experienced faculty, smart classes, and interactive teaching methods have been delivering outstanding results for over 6 years.</p>
+  </section>
 
-    .btn-group {
-        gap: 8px;
-    }
+  <section>
+    <h2>Our Services</h2>
+    <ul>
+      <li>Expert Faculty</li>
+      <li>Smart Classes</li>
+      <li>Interactive Demonstrations</li>
+      <li>Regular Tests and Doubt Clearing Sessions</li>
+    </ul>
+  </section>
 
-    button.download-btn {
-        min-width: 100%;
-        font-size: 1.1rem;
-        padding: 14px;
-    }
-}
+  <section>
+    <h2>Contact Us</h2>
+    <p>Phone: +91 9977552106</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Competition Point. All rights reserved.</p>
+  </footer>
+</body>
+</html>
