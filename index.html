@@ -78,17 +78,22 @@
   <section class="hero">
     <h2>Welcome to Competition Point</h2>
     <p>Fueling young minds for a smarter tomorrow…</p>
-    <!-- Video Reel Embed (muted autoplay, user can unmute via controls) -->
+    
+    <!-- Video Reel Embed: starts unmuted; user can mute via controls -->
     <div class="hero-video">
       <video
         src="intro.mp4"
         poster="video-poster.jpg"
-        autoplay muted controls playsinline
+        controls
+        autoplay
+        loop
+        playsinline
       >
         <source src="intro.webm" type="video/webm">
         Sorry, your browser doesn't support embedded videos.
       </video>
     </div>
+
     <a href="registration.html" class="cta-button">Join Now</a>
   </section>
 
