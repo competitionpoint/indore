@@ -423,16 +423,35 @@
             chapterLinks.innerHTML = '';
             chapterLinks.style.display = 'block';
             const ul = document.createElement('ul');
-            Object.entries(notesData[cls][subj]).forEach(([chapter, url]) => {
-              const li = document.createElement('li');
-              const a  = document.createElement('a');
-              a.href   = url;
-              a.target = '_blank';
-              a.rel    = 'noopener';
-              a.textContent = chapter;
-              li.appendChild(a);
-              ul.appendChild(li);
-            });
+           Object.entries(notesData[cls][subj]).forEach(([chapter, url]) => {
+  const li = document.createElement('li');
+  const a  = document.createElement('a');
+
+  // NEW: detect placeholder links
+  const isPending = !url || url === '#';
+  if (isPending) {
+    a.href = '#';
+    a.textContent = chapter + ' (coming soon…)';
+    a.style.color  = '#999';
+    a.style.cursor = 'not-allowed';
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      alert(
+        'Notes for “' + chapter +
+        '” are still being prepared. Please check back soon!'
+      );
+    });
+  } else {
+    a.href   = url;
+    a.target = '_blank';
+    a.rel    = 'noopener';
+    a.textContent = chapter;
+  }
+
+  li.appendChild(a);
+  ul.appendChild(li);
+});
+
             chapterLinks.appendChild(ul);
           });
           subjectButtons.appendChild(sbtn);
