@@ -389,76 +389,87 @@
     };
   
 
-    const classButtons  = document.getElementById('class-buttons');
-    const subjectButtons= document.getElementById('subject-buttons');
-    const chapterLinks  = document.getElementById('chapter-links');
+   const classButtons   = document.getElementById('class-buttons');
+    const subjectButtons = document.getElementById('subject-buttons');
+    const chapterLinks   = document.getElementById('chapter-links');
 
     // Populate Class buttons
     Object.keys(notesData).forEach(cls => {
       const btn = document.createElement('button');
       btn.className = 'download-btn';
       btn.textContent = cls;
+
       btn.addEventListener('click', () => {
-        // activate class
+        // mark active & hide siblings
         document.querySelectorAll('#class-buttons .download-btn')
                 .forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+        Array.from(classButtons.children).forEach(b => {
+          if (b !== btn) b.style.display = 'none';
+        });
+
         // reset subjects & chapters
         subjectButtons.innerHTML = '';
-        chapterLinks.innerHTML  = '';
-        chapterLinks.style.display   = 'none';
+        chapterLinks.innerHTML   = '';
+        chapterLinks.style.display = 'none';
 
-        // show subjects
+        // show & populate subjects
         subjectButtons.style.display = 'flex';
         Object.keys(notesData[cls]).forEach(subj => {
           const sbtn = document.createElement('button');
           sbtn.className = 'download-btn';
           sbtn.textContent = subj;
+
           sbtn.addEventListener('click', () => {
-            // activate subject
+            // mark active & hide siblings
             document.querySelectorAll('#subject-buttons .download-btn')
                     .forEach(b => b.classList.remove('active'));
             sbtn.classList.add('active');
-            // render chapters
+            Array.from(subjectButtons.children).forEach(b => {
+              if (b !== sbtn) b.style.display = 'none';
+            });
+
+            // reset & show chapters
             chapterLinks.innerHTML = '';
             chapterLinks.style.display = 'block';
             const ul = document.createElement('ul');
-           Object.entries(notesData[cls][subj]).forEach(([chapter, url]) => {
-  const li = document.createElement('li');
-  const a  = document.createElement('a');
 
-  // NEW: detect placeholder links
-  const isPending = !url || url === '#';
-  if (isPending) {
-    a.href = '#';
-    a.textContent = chapter + ' (coming soon…)';
-    a.style.color  = '#999';
-    a.style.cursor = 'not-allowed';
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      alert(
-        'Notes for “' + chapter +
-        '” will be uploaded shortly. Please check back soon!'
-      );
-    });
-  } else {
-    a.href   = url;
-    a.target = '_blank';
-    a.rel    = 'noopener';
-    a.textContent = chapter;
-  }
+            Object.entries(notesData[cls][subj]).forEach(([chapter, url]) => {
+              const li = document.createElement('li');
+              const a  = document.createElement('a');
+              const isPending = !url || url === '#';
 
-  li.appendChild(a);
-  ul.appendChild(li);
-});
+              if (isPending) {
+                a.href = '#';
+                a.textContent = `${chapter} (coming soon…)`;
+                a.style.color  = '#999';
+                a.style.cursor = 'not-allowed';
+                a.addEventListener('click', e => {
+                  e.preventDefault();
+                  alert(`Notes for “${chapter}” will be uploaded shortly. Please check back soon!`);
+                });
+              } else {
+                a.href   = url;
+                a.target = '_blank';
+                a.rel    = 'noopener';
+                a.textContent = chapter;
+              }
+
+              li.appendChild(a);
+              ul.appendChild(li);
+            });
 
             chapterLinks.appendChild(ul);
           });
+
           subjectButtons.appendChild(sbtn);
         });
       });
+
       classButtons.appendChild(btn);
     });
   </script>
 </body>
 </html>
+
+
