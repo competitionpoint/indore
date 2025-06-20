@@ -395,8 +395,10 @@
 
     // Populate Class buttons
     Object.keys(notesData).forEach(cls => {
-      const btn = document.createElement('button');
-      btn.className = 'download-btn';
+    const btn = document.createElement('button');
+// add both the base download-btn plus the new class-btn
+btn.classList.add('download-btn','class-btn');
+
       btn.textContent = cls;
 
       btn.addEventListener('click', () => {
