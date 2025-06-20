@@ -400,7 +400,7 @@
       btn.textContent = cls;
 
       btn.addEventListener('click', () => {
-        // mark active & hide siblings
+        // Activate this class, hide siblings
         document.querySelectorAll('#class-buttons .download-btn')
                 .forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
@@ -408,12 +408,12 @@
           if (b !== btn) b.style.display = 'none';
         });
 
-        // reset subjects & chapters
+        // Clear any previous subjects/chapters
         subjectButtons.innerHTML = '';
         chapterLinks.innerHTML   = '';
         chapterLinks.style.display = 'none';
 
-        // show & populate subjects
+        // Show & populate subjects
         subjectButtons.style.display = 'flex';
         Object.keys(notesData[cls]).forEach(subj => {
           const sbtn = document.createElement('button');
@@ -421,15 +421,12 @@
           sbtn.textContent = subj;
 
           sbtn.addEventListener('click', () => {
-            // mark active & hide siblings
+            // Activate this subject (but DO NOT hide siblings)
             document.querySelectorAll('#subject-buttons .download-btn')
                     .forEach(b => b.classList.remove('active'));
             sbtn.classList.add('active');
-            Array.from(subjectButtons.children).forEach(b => {
-              if (b !== sbtn) b.style.display = 'none';
-            });
 
-            // reset & show chapters
+            // Clear & show chapters
             chapterLinks.innerHTML = '';
             chapterLinks.style.display = 'block';
             const ul = document.createElement('ul');
@@ -471,5 +468,3 @@
   </script>
 </body>
 </html>
-
-
